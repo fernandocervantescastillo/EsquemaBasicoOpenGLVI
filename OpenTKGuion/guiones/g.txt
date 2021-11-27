@@ -1,0 +1,15 @@
+{
+  "l": [
+    {
+      "tEjecucion": 0,
+      "rep": 50,
+      "delta": 523,
+      "escenario": 0,
+      "objeto": "Cubo1",
+      "accion": "Trasladar escenario",
+      "valorX": 0.0,
+      "valorY": 0.1,
+      "valorZ": 0.0
+    }
+  ]
+}
