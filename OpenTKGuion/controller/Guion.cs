@@ -19,7 +19,15 @@ namespace OpenTKGuion.controller
         public Guion(string JSON)
         {
             Guion guion = JsonConvert.DeserializeObject<Guion>(JSON);
-            this.l = guion.l;
+            if (guion == null)
+            {
+                guion = new Guion();
+                return;
+            }
+            if (guion.l == null)
+                this.l = new LinkedList<Accion>();
+            else
+                this.l = guion.l;
         }
 
         public void addAccion(int tEjecucion, int rep, int delta, int escenario, string objeto, string accion, float vx, float vy, float vz)

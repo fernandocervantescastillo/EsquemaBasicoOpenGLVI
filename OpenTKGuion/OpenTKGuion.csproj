@@ -107,7 +107,7 @@
     <Folder Include="files\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="guiones\g.txt" />
+    <Content Include="guiones\t.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

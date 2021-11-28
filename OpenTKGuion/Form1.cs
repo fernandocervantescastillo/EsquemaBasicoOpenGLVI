@@ -264,13 +264,14 @@ namespace OpenTKGuion
 
                 if (!File.Exists(path))
                 {
+                    guion = new Guion();
                     textBox3.Text = "";
                 }
                 else
                 {
                     string text = File.ReadAllText(path);
-                    
                     textBox3.Text = text;
+                    guion = new Guion(text);
                 }
             }
         }
@@ -546,8 +547,11 @@ namespace OpenTKGuion
 
             if (!File.Exists(path))
             {
+                guion = new Guion();
+                t = guion.toJSon();
+
                 StreamWriter sw = File.CreateText(path);
-                sw.WriteLine("");
+                sw.WriteLine(t);
                 sw.Close();
             }
             else
@@ -619,15 +623,10 @@ namespace OpenTKGuion
             path = path + "..\\..\\..\\guiones";
             path = path + "\\" + name + ".txt";
 
-            if (!File.Exists(path))
-            {
-                textBox3.Text = "";
-            }
-            else
-            {
-                textBox3.Text = File.ReadAllText(path);
-            }
-            
+            string text = File.ReadAllText(path);
+            textBox3.Text = text;
+            guion = new Guion(text);
+
         }
 
 
@@ -635,9 +634,17 @@ namespace OpenTKGuion
         private void button19_Click(object sender, EventArgs e)
         {
             if (aux == 0)
+            {
                 aux = 1;
+                button19.Text = "Strop";
+                button19.BackColor = System.Drawing.Color.Red;
+            }
             else
+            {
                 aux = 0;
+                button19.Text = "Play";
+                button19.BackColor = System.Drawing.Color.Green;
+            }
 
             tiempo = 0;
         }
